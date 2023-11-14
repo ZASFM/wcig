@@ -1,5 +1,6 @@
 describe('template spec', () => {
   it('passes', () => {
-    cy.visit('https://example.cypress.io')
+    cy.visit('/fundamentals');
+    cy.get('[data_test="fundamentals-header"]').contains(/Testing Fundamentals/i)
   })
 })
