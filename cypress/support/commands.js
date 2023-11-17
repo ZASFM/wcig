@@ -26,5 +26,5 @@
 
 //this command will help getting a DOM.EL depending on the id passed as props
 Cypress.Commands.add('getDataTest',(dataTestSelector)=>{
-   return cy.get(`data-test=${dataTestSelector}`);
+   return cy.get(`[data-test=${dataTestSelector}]`);
 })
