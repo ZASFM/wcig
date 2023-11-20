@@ -17,4 +17,12 @@ describe('examples',()=>{
       cy.getDataTest('nav-examples').click();
       cy.location("pathname").should('equal','/examples');
    })
+
+   it.only('intercepts the message from fetch function',()=>{
+      cy.intercept("POST",'http://localhost:3000/exampels',{
+         fixture:'example.json'
+      });
+
+      cy.getDataTest('post-button').click();
+   })
 })
