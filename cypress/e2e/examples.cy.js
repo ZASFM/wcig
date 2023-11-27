@@ -35,6 +35,8 @@ describe('examples',()=>{
 
       cy.getDataTest('clear-button').should('not.exist');
 
+      cy.getDataTest('grudge-list-title').should('have.text','Add some grudges');
+
       cy.getDataTest('grudge-input').within(()=>{
          cy.get('input').type('some test');
       });
@@ -46,6 +48,8 @@ describe('examples',()=>{
          //at index 0, it should have name some  test
          cy.get('li').its(0).should('contains.text','some test')
       });
+
+      cy.getDataTest('grudge-list-title').should('have.text','Grudges');
 
       cy.getDataTest('grudge-list').within(()=>{
          cy.get('button').click();
