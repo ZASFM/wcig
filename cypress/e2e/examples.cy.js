@@ -18,11 +18,19 @@ describe('examples',()=>{
       cy.location("pathname").should('equal','/examples');
    })
 
-   it.only('intercepts the message from fetch function',()=>{
+   it('intercepts the message from fetch function',()=>{
       cy.intercept("POST",'http://localhost:3000/exampels',{
          fixture:'example.json'
       });
 
       cy.getDataTest('post-button').click();
+   })
+
+   it.only('grudges',()=>{
+      cy.contains(/add some grudged/i);
+      cy.getDataTest('grudge-input').within(()=>{
+         cy.get('input').type('some test');
+      });
+      cy.getDataTest('add-grudge-button').click();
    })
 })
